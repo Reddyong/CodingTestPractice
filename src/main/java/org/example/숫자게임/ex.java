@@ -1,8 +1,24 @@
 package org.example.숫자게임;
 
+import java.util.*;
+
 public class ex {
+    int size;
     public int solution(int[] A, int[] B) {
-        int answer = -1;
+        int answer = 0;
+        size = A.length;
+
+        Arrays.sort(A);
+        Arrays.sort(B);
+
+        int b = size - 1;
+        for (int a = size - 1; a>= 0; a--) {
+            if (A[a] < B[b]) {
+                answer++;
+                b--;
+            }
+        }
+
         return answer;
     }
 
