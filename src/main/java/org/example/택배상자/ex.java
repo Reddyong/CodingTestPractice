@@ -1,15 +1,20 @@
 package org.example.택배상자;
 
-import java.util.Stack;
+import java.util.*;
 
 public class ex {
     int[] realBelt;
+    List<Integer> truck = new ArrayList<>();
+    Queue<Integer> belt = new LinkedList<>();
+    Stack<Integer> subBelt = new Stack<>();
     public int solution(int[] order) {
         int answer = 0;
         realBelt = new int[order.length];
-        Stack<Integer> subBelt = new Stack<>();
 
         changeToReal(order);
+
+        putInSub();
+
 
 
         return answer;
@@ -19,6 +24,21 @@ public class ex {
         for (int i = 0; i < order.length; i++) {
             int index = order[i] - 1;
             realBelt[index] = i + 1;
+        }
+
+        for (int j = 0; j < realBelt.length; j++) {
+            belt.add(realBelt[j]);
+        }
+
+    }
+
+    public void putInSub() {
+        for (int i = 0; i < belt.size(); i++) {
+            if (belt.peek() == 1) {
+                break;
+            }
+            Integer poll = belt.poll();
+            subBelt.push(poll);
         }
     }
 
