@@ -15,9 +15,13 @@ public class ex {
 
         putInSub();
 
-
+        putFirst();
 
         return answer;
+    }
+
+    public void putFirst() {
+        truck.add(belt.poll());
     }
 
     public void changeToReal(int[] order) {
