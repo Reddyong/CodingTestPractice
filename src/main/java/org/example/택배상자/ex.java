@@ -41,7 +41,7 @@ public class ex {
     }
 
     public void putInSub() {
-        for (int i = 0; i < belt.size(); i++) {
+        for (int i = 0; i < realBelt.length ; i++) {
             if (belt.peek() == 1) {
                 break;
             }
@@ -58,6 +58,9 @@ public class ex {
     }
 
     public void checkBelt(int i) {
+        if (belt.isEmpty()) {
+            return;
+        }
         if (belt.peek() == i && truck.contains(i - 1)) {
             belt.poll();
             truck.add(i);
@@ -65,6 +68,9 @@ public class ex {
     }
 
     public void checkSubBelt(int i) {
+        if (subBelt.isEmpty()) {
+            return;
+        }
         if (subBelt.peek() == i && truck.contains(i - 1)) {
             subBelt.pop();
             truck.add(i);
