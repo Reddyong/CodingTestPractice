@@ -17,6 +17,10 @@ public class ex {
 
         putFirst();
 
+        putInTruck();
+
+        answer = truck.size();
+
         return answer;
     }
 
@@ -43,6 +47,27 @@ public class ex {
             }
             Integer poll = belt.poll();
             subBelt.push(poll);
+        }
+    }
+
+    public void putInTruck() {
+        for (int i = 2; i < realBelt.length + 1; i++) {
+            checkBelt(i);
+            checkSubBelt(i);
+        }
+    }
+
+    public void checkBelt(int i) {
+        if (belt.peek() == i && truck.contains(i - 1)) {
+            belt.poll();
+            truck.add(i);
+        }
+    }
+
+    public void checkSubBelt(int i) {
+        if (subBelt.peek() == i && truck.contains(i - 1)) {
+            subBelt.pop();
+            truck.add(i);
         }
     }
 
