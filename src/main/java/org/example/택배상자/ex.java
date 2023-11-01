@@ -3,11 +3,23 @@ package org.example.택배상자;
 import java.util.*;
 
 public class ex {
+    int[] realBelt;
+    Stack<Integer> subBelt = new Stack<>();
     public int solution(int[] order) {
         int answer = 0;
+        int target = 1;
+        realBelt = new int[order.length];
+
+        changeToRealBelt(order);
 
 
         return answer;
+    }
+
+    public void changeToRealBelt(int[] order) {
+        for (int i = 0; i < order.length; i++) {
+            realBelt[order[i] - 1] = i + 1;
+        }
     }
 
 
