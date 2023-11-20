@@ -1,12 +1,22 @@
 package org.example.기지국설치;
 
+import java.util.*;
+
 public class ex {
     public int solution(int n, int[] stations, int w) {
         int answer = 0;
+        boolean[] check = new boolean[n];
 
+        init(stations, check);
 
 
         return answer;
+    }
+
+    private static void init(int[] stations, boolean[] check) {
+        for (int station : stations) {
+            check[station - 1] = true;
+        }
     }
 
     public static void main(String[] args) {
