@@ -10,7 +10,18 @@ public class ex {
     }
 
     public int[] dAndC(int[][] arr, int[] answer, int n) {
+        if (n == 1) {
+            return getLastStep(arr, answer);
+        }
+    }
 
+    private static int[] getLastStep(int[][] arr, int[] answer) {
+        if (arr[0][0] == 0) {
+            answer[0]++;
+        } else {
+            answer[1]++;
+        }
+        return answer;
     }
 
     public static void main(String[] args) {
