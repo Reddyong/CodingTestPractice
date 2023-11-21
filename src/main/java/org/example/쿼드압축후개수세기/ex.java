@@ -2,8 +2,15 @@ package org.example.쿼드압축후개수세기;
 
 public class ex {
     public int[] solution(int[][] arr) {
-        int[] answer = {};
+        int[] answer = new int[2];
+        int n = arr.length;
+
+        dAndC(arr, answer, n);
         return answer;
+    }
+
+    public int[] dAndC(int[][] arr, int[] answer, int n) {
+
     }
 
     public static void main(String[] args) {
