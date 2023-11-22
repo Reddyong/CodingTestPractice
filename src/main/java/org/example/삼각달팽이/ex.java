@@ -6,9 +6,30 @@ import java.util.List;
 public class ex {
     public int[] solution(int n) {
         int[] answer = init(n);
+        int[][] triangle = new int[n][n];
+        int x = -1;
+        int y = 0;
+        int num = 1;
 
-
+        fillTriangle(n, triangle, x, y, num);
         return answer;
+    }
+
+    private static void fillTriangle(int n, int[][] triangle, int x, int y, int num) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (j % 3 == 0) {
+                    x++;
+                } else if (j % 3 == 1) {
+                    y++;
+                } else {
+                    x--;
+                    y--;
+                }
+                triangle[x][y] = num;
+                num++;
+            }
+        }
     }
 
     private static int[] init(int n) {
@@ -23,9 +44,9 @@ public class ex {
 
     public static void main(String[] args) {
         ex sol = new ex();
-        int[] solution1 = sol.solution(1);
-        int[] solution2 = sol.solution(2);
-        int[] solution3 = sol.solution(3);
+        int[] solution1 = sol.solution(4);
+        int[] solution2 = sol.solution(5);
+        int[] solution3 = sol.solution(6);
 
         for (int s1 : solution1) {
             System.out.println("s1 = " + s1);
