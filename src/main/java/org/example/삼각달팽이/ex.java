@@ -10,9 +10,17 @@ public class ex {
 
         for (int i = 1; i <= n; i++) {
             isFirstLine(list, i);
+            isSecondLine(n, list, i);
             isLastLine(n, list, i);
         }
         return answer;
+    }
+
+    private static void isSecondLine(int n, List<Integer> list, int i) {
+        if (i == 2) {
+            list.add(2);
+            list.add(3 * (n - 1));
+        }
     }
 
     private static void isFirstLine(List<Integer> list, int i) {
