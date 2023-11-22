@@ -6,48 +6,9 @@ import java.util.List;
 public class ex {
     public int[] solution(int n) {
         int[] answer = init(n);
-        List<Integer> list = new ArrayList<>();
 
-        for (int i = 1; i <= n; i++) {
-            if (isLastLine(n, list, i)) {
-                break;
-            }
-            isFirstLine(list, i);
-            isSecondLine(n, list, i);
-        }
-
-        getAnswer(answer, list);
 
         return answer;
-    }
-
-    private static void getAnswer(int[] answer, List<Integer> list) {
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = list.get(i);
-        }
-    }
-
-    private static void isSecondLine(int n, List<Integer> list, int i) {
-        if (i == 2) {
-            list.add(2);
-            list.add(3 * (n - 1));
-        }
-    }
-
-    private static void isFirstLine(List<Integer> list, int i) {
-        if (i == 1) {
-            list.add(1);
-        }
-    }
-
-    private static boolean isLastLine(int n, List<Integer> list, int i) {
-        if (i == n) {
-            for (int j = n; j <= n + n - 1; j++) {
-                list.add(j);
-            }
-            return true;
-        }
-        return false;
     }
 
     private static int[] init(int n) {
