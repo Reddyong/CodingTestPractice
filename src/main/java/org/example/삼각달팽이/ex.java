@@ -13,7 +13,16 @@ public class ex {
             isSecondLine(n, list, i);
             isLastLine(n, list, i);
         }
+
+        getAnswer(n, answer, list);
+
         return answer;
+    }
+
+    private static void getAnswer(int n, int[] answer, List<Integer> list) {
+        for (int i = 0; i < n; i++) {
+            answer[i] = list.get(i);
+        }
     }
 
     private static void isSecondLine(int n, List<Integer> list, int i) {
@@ -52,5 +61,21 @@ public class ex {
         int[] solution1 = sol.solution(1);
         int[] solution2 = sol.solution(2);
         int[] solution3 = sol.solution(3);
+
+        for (int s1 : solution1) {
+            System.out.println("s1 = " + s1);
+        }
+
+        System.out.println("======================");
+
+        for (int s2 : solution2) {
+            System.out.println("s2 = " + s2);
+        }
+
+        System.out.println("======================");
+
+        for (int s3 : solution3) {
+            System.out.println("s3 = " + s3);
+        }
     }
 }
