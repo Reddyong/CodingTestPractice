@@ -2,7 +2,17 @@ package org.example.삼각달팽이;
 
 public class ex {
     public int[] solution(int n) {
-        int[] answer = {};
+        int[] answer = init(n);
+        return answer;
+    }
+
+    private static int[] init(int n) {
+        int[] answer;
+        int size = 0;
+        for (int i = 1; i <= n; i++) {
+            size += i;
+        }
+        answer = new int[size];
         return answer;
     }
 
