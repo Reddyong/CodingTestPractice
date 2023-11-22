@@ -9,9 +9,16 @@ public class ex {
         List<Integer> list = new ArrayList<>();
 
         for (int i = 1; i <= n; i++) {
+            isFirstLine(list, i);
             isLastLine(n, list, i);
         }
         return answer;
+    }
+
+    private static void isFirstLine(List<Integer> list, int i) {
+        if (i == 1) {
+            list.add(1);
+        }
     }
 
     private static void isLastLine(int n, List<Integer> list, int i) {
@@ -34,8 +41,8 @@ public class ex {
 
     public static void main(String[] args) {
         ex sol = new ex();
-        int[] solution1 = sol.solution(4);
-        int[] solution2 = sol.solution(5);
-        int[] solution3 = sol.solution(6);
+        int[] solution1 = sol.solution(1);
+        int[] solution2 = sol.solution(2);
+        int[] solution3 = sol.solution(3);
     }
 }
