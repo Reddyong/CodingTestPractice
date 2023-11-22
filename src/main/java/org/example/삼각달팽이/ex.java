@@ -10,17 +10,31 @@ public class ex {
         int x = -1;
         int y = 0;
         int num = 1;
+        int index = 0;
 
         fillTriangle(n, triangle, x, y, num);
+        getAnswer(answer, triangle, index);
+
         return answer;
+    }
+
+    private static void getAnswer(int[] answer, int[][] triangle, int index) {
+        for (int[] ints : triangle) {
+            for (int anInt : ints) {
+                if (anInt != 0) {
+                    answer[index] = anInt;
+                    index++;
+                }
+            }
+        }
     }
 
     private static void fillTriangle(int n, int[][] triangle, int x, int y, int num) {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
-                if (j % 3 == 0) {
+                if (i % 3 == 0) {
                     x++;
-                } else if (j % 3 == 1) {
+                } else if (i % 3 == 1) {
                     y++;
                 } else {
                     x--;
