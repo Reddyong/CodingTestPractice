@@ -9,10 +9,35 @@ public class ex {
     Queue<Integer> q1 = new LinkedList<>();
     Queue<Integer> q2 = new LinkedList<>();
     public int solution(int[] queue1, int[] queue2) {
-        int answer = -2;
+        int answer = 0;
 
         init(queue1, queue2);
 
+        while (sum1 != sum2) {
+            answer = whereIsBigSum(answer);
+
+            if (q1.isEmpty() || q2.isEmpty()) {
+                answer = -1;
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    public int whereIsBigSum(int answer) {
+        if (sum1 > sum2) {
+            Integer poll = q1.poll();
+            q2.add(poll);
+            sum1 -= poll;
+            sum2 += poll;
+        } else {
+            Integer poll = q2.poll();
+            q1.add(poll);
+            sum2 -= poll;
+            sum1 += poll;
+        }
+        answer++;
         return answer;
     }
 
@@ -29,12 +54,12 @@ public class ex {
 
     public static void main(String[] args) {
         ex sol = new ex();
-        int solution1 = sol.solution(new int[]{3, 2, 7, 2}, new int[]{4, 6, 5, 1});
+//        int solution1 = sol.solution(new int[]{3, 2, 7, 2}, new int[]{4, 6, 5, 1});
 //        int solution2 = sol.solution(new int[]{1, 2, 1, 2}, new int[]{1, 10, 1, 2});
-//        int solution3 = sol.solution(new int[]{1, 1}, new int[]{1, 5});
+        int solution3 = sol.solution(new int[]{1, 1}, new int[]{1, 5});
 
-        System.out.println("solution1 = " + solution1);
+//        System.out.println("solution1 = " + solution1);
 //        System.out.println("solution2 = " + solution2);
-//        System.out.println("solution3 = " + solution3);
+        System.out.println("solution3 = " + solution3);
     }
 }
