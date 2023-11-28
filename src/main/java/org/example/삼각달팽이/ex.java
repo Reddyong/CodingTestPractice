@@ -18,17 +18,6 @@ public class ex {
         return answer;
     }
 
-    private static void getAnswer(int[] answer, int[][] triangle, int index) {
-        for (int[] ints : triangle) {
-            for (int anInt : ints) {
-                if (anInt != 0) {
-                    answer[index] = anInt;
-                    index++;
-                }
-            }
-        }
-    }
-
     private static void fillTriangle(int n, int[][] triangle, int x, int y, int num) {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
@@ -42,6 +31,17 @@ public class ex {
                 }
                 triangle[x][y] = num;
                 num++;
+            }
+        }
+    }
+
+    private static void getAnswer(int[] answer, int[][] triangle, int index) {
+        for (int[] ints : triangle) {
+            for (int anInt : ints) {
+                if (anInt != 0) {
+                    answer[index] = anInt;
+                    index++;
+                }
             }
         }
     }
