@@ -32,7 +32,7 @@ public class ex {
             builder.deleteCharAt(0);
             builder.insert(0, "10");
         }
-        
+
         return Long.valueOf(builder.toString(), 2);
     }
 

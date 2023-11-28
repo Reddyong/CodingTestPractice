@@ -8,6 +8,7 @@ public class ex {
     long sum2 = 0;
     Queue<Integer> q1 = new LinkedList<>();
     Queue<Integer> q2 = new LinkedList<>();
+
     public int solution(int[] queue1, int[] queue2) {
         int answer = 0;
         int count = 0;
