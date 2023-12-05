@@ -3,43 +3,32 @@ package org.example.연속된부분수의합;
 import java.util.*;
 
 public class ex {
-    int startIdx = 0;
-    int endIdx = 0;
+
     public int[] solution(int[] sequence, int k) {
-        int[] answer = new int[2];
         int seqLength = sequence.length;
-        List<int[]> check = new ArrayList<>();
+        int startIdx = 0;
+        int endIdx = seqLength;
+        int sum = 0;
 
-        saveIndex(sequence, k, seqLength, check);
+        for (int i = 0, j = 0; i < seqLength; i++) {
+            while (j < seqLength && sum < k) {
+                sum += sequence[j++];
+            }
 
-        answer = getAnswer(check);
-
-        return answer;
-    }
-
-    public int[] getAnswer(List<int[]> check) {
-        int[] answer;
-        if (check.size() != 1) {
-            check.sort((o1, o2) -> (o1[1] - o1[0]) - (o2[1] - o2[0]));
-        }
-
-        answer = check.get(0);
-        return answer;
-    }
-
-    public void saveIndex(int[] sequence, int k, int seqLength, List<int[]> check) {
-        for (int i = 0; i < seqLength; i++) {
-            int sum = 0;
-            for (int j = i; j < seqLength; j++) {
-                startIdx = i;
-                endIdx = j;
-                sum += sequence[j];
-                if (sum == k) {
-                    check.add(new int[]{startIdx, endIdx});
-                    break;
+            if (sum == k) {
+                int range = j - i - 1;
+                if ((endIdx - startIdx) > range) {
+                    startIdx = i;
+                    endIdx = j - 1;
                 }
             }
+
+            sum -= sequence[i];
         }
+
+        int[] answer = {startIdx, endIdx};
+
+        return answer;
     }
 
     public static void main(String[] args) {
