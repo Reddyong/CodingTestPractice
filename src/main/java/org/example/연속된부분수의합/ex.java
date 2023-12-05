@@ -17,7 +17,7 @@ public class ex {
         return answer;
     }
 
-    private static int[] getAnswer(List<int[]> check) {
+    public int[] getAnswer(List<int[]> check) {
         int[] answer;
         if (check.size() != 1) {
             check.sort((o1, o2) -> (o1[1] - o1[0]) - (o2[1] - o2[0]));
