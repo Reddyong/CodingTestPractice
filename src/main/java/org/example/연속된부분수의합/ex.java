@@ -3,13 +3,13 @@ package org.example.연속된부분수의합;
 import java.util.*;
 
 public class ex {
+    int startIdx = 0;
+    int endIdx = 0;
     public int[] solution(int[] sequence, int k) {
         int[] answer = new int[2];
         int seqLength = sequence.length;
         List<int[]> check = new ArrayList<>();
-        int startIdx = 0;
-        int endIdx = 0;
-        int count = 0;
+
 
         saveIndex(sequence, k, seqLength, check);
 
@@ -24,9 +24,7 @@ public class ex {
         return answer;
     }
 
-    public static void saveIndex(int[] sequence, int k, int seqLength, List<int[]> check) {
-        int startIdx;
-        int endIdx;
+    public void saveIndex(int[] sequence, int k, int seqLength, List<int[]> check) {
         for (int i = 0; i < seqLength; i++) {
             int sum = 0;
             for (int j = i; j < seqLength; j++) {
@@ -34,7 +32,6 @@ public class ex {
                 endIdx = j;
                 sum += sequence[j];
                 if (sum == k) {
-                    sum = 0;
                     check.add(new int[]{startIdx, endIdx});
                     break;
                 }
