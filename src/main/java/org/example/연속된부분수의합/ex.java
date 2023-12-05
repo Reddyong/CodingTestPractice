@@ -1,27 +1,30 @@
 package org.example.연속된부분수의합;
 
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
 
 public class ex {
     public int[] solution(int[] sequence, int k) {
         int[] answer = new int[2];
         int seqLength = sequence.length;
-        int[][] check = new int[seqLength][2];
+        List<int[]> check = new ArrayList<>();
         int startIdx = 0;
         int endIdx = 0;
+        int count = 0;
 
         saveIndex(sequence, k, seqLength, check);
 
-        for (int[] ints : check) {
-            System.out.println(Arrays.toString(ints));
+        for (int[] c : check) {
+            System.out.println(Arrays.toString(c));
         }
-        System.out.println("=============");
+
+        System.out.println("============");
+
+
 
         return answer;
     }
 
-    public static void saveIndex(int[] sequence, int k, int seqLength, int[][] check) {
+    public static void saveIndex(int[] sequence, int k, int seqLength, List<int[]> check) {
         int startIdx;
         int endIdx;
         for (int i = 0; i < seqLength; i++) {
@@ -32,8 +35,7 @@ public class ex {
                 sum += sequence[j];
                 if (sum == k) {
                     sum = 0;
-                    check[startIdx][0] = startIdx;
-                    check[startIdx][1] = endIdx;
+                    check.add(new int[]{startIdx, endIdx});
                     break;
                 }
             }
