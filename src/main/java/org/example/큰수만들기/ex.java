@@ -2,7 +2,26 @@ package org.example.큰수만들기;
 
 public class ex {
     public String solution(String number, int k) {
+        // 4177252841
         String answer = "";
+        StringBuilder sb = new StringBuilder(answer);
+        int len = number.length() - k;
+        int start = 0;
+
+        while (start < number.length() && sb.length() != len) {
+            int num = k + sb.length() + 1;
+            char max = 0;
+            for (int i = start; i < num; i++) {
+                if (max < number.charAt(i)) {
+                    max = number.charAt(i);
+                    start = i + 1;
+                }
+            }
+            sb.append(max);
+        }
+
+        answer = sb.toString();
+
         return answer;
     }
 
