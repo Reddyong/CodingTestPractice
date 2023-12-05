@@ -10,17 +10,20 @@ public class ex {
         int seqLength = sequence.length;
         List<int[]> check = new ArrayList<>();
 
-
         saveIndex(sequence, k, seqLength, check);
 
-        for (int[] c : check) {
-            System.out.println(Arrays.toString(c));
+        answer = getAnswer(check);
+
+        return answer;
+    }
+
+    private static int[] getAnswer(List<int[]> check) {
+        int[] answer;
+        if (check.size() != 1) {
+            check.sort((o1, o2) -> (o1[1] - o1[0]) - (o2[1] - o2[0]));
         }
 
-        System.out.println("============");
-
-
-
+        answer = check.get(0);
         return answer;
     }
 
@@ -45,16 +48,8 @@ public class ex {
         int[] solution2 = sol.solution(new int[]{1, 1, 1, 2, 3, 4, 5}, 5);
         int[] solution3 = sol.solution(new int[]{2, 2, 2, 2, 2}, 6);
 
-        for (int s1 : solution1) {
-            System.out.println("s1 = " + s1);
-        }
-
-        for (int s2 : solution2) {
-            System.out.println("s2 = " + s2);
-        }
-
-        for (int s3 : solution3) {
-            System.out.println("s3 = " + s3);
-        }
+        System.out.println("solution1 = " + Arrays.toString(solution1));
+        System.out.println("solution2 = " + Arrays.toString(solution2));
+        System.out.println("solution3 = " + Arrays.toString(solution3));
     }
 }
