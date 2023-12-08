@@ -11,7 +11,7 @@ public class ex {
         while (n != 0) {
             int num = n % 3;
             if (num == 0) {
-                num = 3;
+                num = 4;
                 list.add(num);
                 n = n / 3 - 1;
                 continue;
@@ -21,11 +21,7 @@ public class ex {
         }
 
         for (int i = list.size() - 1; i >= 0; i--) {
-            Integer integer = list.get(i);
-            if (integer.equals(3)) {
-                integer = 4;
-            }
-            answer += integer;
+            answer += list.get(i);
         }
 
         return answer;
