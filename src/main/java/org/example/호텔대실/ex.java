@@ -1,23 +1,38 @@
 package org.example.호텔대실;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class ex {
     public int solution(String[][] book_time) {
         int answer = 0;
         int[][] times = new int[book_time.length][2];
+        List<int[]> list = new ArrayList<>();
 
         timesToNum(book_time, times);
         sortTimes(times);
+        addRooms(times, list);
 
-        for (int[] time : times) {
-            System.out.println("time = " + Arrays.toString(time));
-        }
-
-        System.out.println("============================");
-
+        answer = list.size();
         return answer;
+    }
+
+    private static void addRooms(int[][] times, List<int[]> list) {
+        for (int[] time : times) {
+            if (!list.isEmpty()) {
+                checkRooms(list, time);
+            }
+            list.add(time);
+        }
+    }
+
+    private static void checkRooms(List<int[]> list, int[] time) {
+        for (int i = 0; i < list.size(); i++) {
+            int l2 = list.get(i)[1];
+            if (l2 + 10 <= time[0]) {
+                list.remove(i);
+                break;
+            }
+        }
     }
 
     private static void sortTimes(int[][] times) {
