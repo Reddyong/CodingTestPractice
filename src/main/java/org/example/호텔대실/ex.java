@@ -9,7 +9,7 @@ public class ex {
         int[][] times = new int[book_time.length][2];
 
         timesToNum(book_time, times);
-
+        sortTimes(times);
 
         for (int[] time : times) {
             System.out.println("time = " + Arrays.toString(time));
@@ -18,6 +18,10 @@ public class ex {
         System.out.println("============================");
 
         return answer;
+    }
+
+    private static void sortTimes(int[][] times) {
+        Arrays.sort(times, (o1, o2) -> o1[0] - o2[0]);
     }
 
     private static void timesToNum(String[][] book_time, int[][] times) {
