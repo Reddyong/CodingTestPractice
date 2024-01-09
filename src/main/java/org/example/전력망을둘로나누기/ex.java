@@ -1,9 +1,50 @@
 package org.example.전력망을둘로나누기;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ex {
+    int cnt = Integer.MAX_VALUE;
     public int solution(int n, int[][] wires) {
         int answer = -1;
+
+        for (int i = 0; i < wires.length; i++) {
+            Set<Integer> set1 = new HashSet<>();
+            Set<Integer> set2 = new HashSet<>();
+            boolean[] b = new boolean[wires.length];
+            b[i] = true;
+            dfs(wires, set1, b, wires[i][0]);
+            dfs(wires, set2, b, wires[i][1]);
+
+            int c = Math.abs(set1.size() - set2.size());
+            if (c < cnt) {
+                cnt = c;
+            }
+        }
+
+        answer = cnt;
+
         return answer;
+    }
+
+    public void dfs(int[][] wires, Set<Integer> set, boolean[] b, int cur) {
+        set.add(cur);
+
+        for (int i = 0; i < wires.length; i++) {
+            if (b[i] || (wires[i][0] != cur && wires[i][1] != cur)) {
+                continue;
+            }
+            if (wires[i][0] == cur) {
+                b[i] = true;
+                set.add(wires[i][1]);
+                dfs(wires, set, b, wires[i][1]);
+            }
+            if (wires[i][1] == cur) {
+                b[i] = true;
+                set.add(wires[i][0]);
+                dfs(wires, set, b, wires[i][0]);
+            }
+        }
     }
 
     public static void main(String[] args) {
