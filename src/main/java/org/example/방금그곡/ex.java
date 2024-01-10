@@ -1,9 +1,38 @@
 package org.example.방금그곡;
 
 public class ex {
+    String startTime;
+    String endTime;
+    String title;
+    String code;
+    int playingTime;
     public String solution(String m, String[] musicinfos) {
         String answer = "";
+
+        for (String musicinfo : musicinfos) {
+            initMusicInfo(musicinfo);
+
+        }
         return answer;
+    }
+
+    private void initMusicInfo(String musicinfo) {
+        String[] split = musicinfo.split(",");
+        startTime = split[0];
+        endTime = split[1];
+        playingTime = calcTime();
+        title = split[2];
+        code = split[3];
+    }
+
+    public int calcTime() {
+        String[] splitStart = startTime.split(":");
+        String[] splitEnd = endTime.split(":");
+
+        int s = Integer.parseInt(splitStart[0]) * 60 + Integer.parseInt(splitStart[1]);
+        int e = Integer.parseInt(splitEnd[0]) * 60 + Integer.parseInt(splitEnd[1]);
+
+        return e - s;
     }
 
     public static void main(String[] args) {
