@@ -8,7 +8,18 @@ public class ex {
             return p;
         }
 
+        String a = findAnswer(p);
+
         return answer;
+    }
+
+    private String findAnswer(String p) {
+        if (p.equals("")) {
+            return "";
+        }
+
+
+
     }
 
     private boolean checkCorrect(String u) {
