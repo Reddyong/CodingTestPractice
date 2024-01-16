@@ -19,7 +19,33 @@ public class ex {
         }
 
         int idx = findIndex(p);
+        String u = p.substring(0, idx + 1);
+        String v = p.substring(idx + 1);
+        String ans = "";
 
+        if (checkCorrect(u)) {
+            ans = findAnswer(v);
+            return u + ans;
+        }
+
+        String deletedU = u.substring(1, u.length() - 1);
+        ans = "(" + findAnswer(v) + ")" + changeDeleted(deletedU);
+
+        return ans;
+    }
+
+    private String changeDeleted(String deletedU) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < deletedU.length(); i++) {
+            if (deletedU.substring(i, i + 1).equals("(")) {
+                sb.append(")");
+            } else {
+                sb.append("(");
+            }
+        }
+
+        return sb.toString();
     }
 
     private int findIndex(String p) {
