@@ -18,8 +18,27 @@ public class ex {
             return "";
         }
 
+        int idx = findIndex(p);
 
+    }
 
+    private int findIndex(String p) {
+        int l = 0;
+        int r = 0;
+
+        for (int i = 0; i < p.length(); i++) {
+            if (p.substring(i, i + 1).equals("(")) {
+                l++;
+            } else {
+                r++;
+            }
+
+            if (l == r) {
+                return i;
+            }
+        }
+
+        return p.length() - 1;
     }
 
     private boolean checkCorrect(String u) {
