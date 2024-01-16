@@ -10,6 +10,8 @@ public class ex {
 
         String a = findAnswer(p);
 
+        answer = a;
+
         return answer;
     }
 
