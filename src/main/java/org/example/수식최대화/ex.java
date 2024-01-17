@@ -16,10 +16,14 @@ public class ex {
         long answer = 0;
 
         initNumAndOp(expression);
-        System.out.println("num = " + num);
-        System.out.println("op = " + op);
+
+        dfs(0, operator.size());
 
         return answer;
+    }
+
+    public void dfs(int depth, int size) {
+
     }
 
     public void initNumAndOp(String expression) {
