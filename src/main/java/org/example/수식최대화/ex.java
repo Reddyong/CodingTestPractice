@@ -1,9 +1,6 @@
 package org.example.수식최대화;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ex {
     List<Character> operator = List.of('*', '-', '+');
@@ -19,11 +16,59 @@ public class ex {
 
         dfs(0, operator.size());
 
+        answer = temp;
+
         return answer;
     }
 
-    public void dfs(int depth, int size) {
+    public void solve() {
+        List<Character> opList = new ArrayList<>(op);
+        List<Long> numList = new ArrayList<>(num);
 
+        for (int i = 0; i < cases.length; i++) {
+            char curOp = cases[i];
+
+            for (int j = 0; j < opList.size(); j++) {
+                if (opList.get(j) == curOp) {
+                    Long newNum = calc(numList.get(j), numList.get(j + 1), curOp);
+                    numList.set(j, newNum);
+                    numList.remove(j + 1);
+                    opList.remove(j);
+
+                    j--;
+                }
+            }
+
+            temp = Math.max(temp, Math.abs(numList.get(0)));
+        }
+    }
+
+    public Long calc(Long n1, Long n2, char curOp) {
+        if (curOp == '-') {
+            return n1 - n2;
+        } else if (curOp == '+') {
+            return n1 + n2;
+        }
+
+        return n1 * n2;
+    }
+
+
+    public void dfs(int depth, int size) {
+        if (depth == size) {
+            solve();
+
+            return;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                cases[depth] = operator.get(i);
+                dfs(depth + 1, size);
+                visited[i] = false;
+            }
+        }
     }
 
     public void initNumAndOp(String expression) {
@@ -45,10 +90,10 @@ public class ex {
 
     public static void main(String[] args) {
         ex sol = new ex();
-        long solution1 = sol.solution("100-200*300-500+20");
-//        long solution2 = sol.solution("50*6-3*2");
+//        long solution1 = sol.solution("100-200*300-500+20");
+        long solution2 = sol.solution("50*6-3*2");
 
-        System.out.println("solution1 = " + solution1);
-//        System.out.println("solution2 = " + solution2);
+//        System.out.println("solution1 = " + solution1);
+        System.out.println("solution2 = " + solution2);
     }
 }
