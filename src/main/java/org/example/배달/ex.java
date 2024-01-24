@@ -1,6 +1,7 @@
 package org.example.배달;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class ex {
     final int MAX = 500001;
@@ -41,6 +42,27 @@ public class ex {
         }
 
         return result;
+    }
+
+    private int[] dijkstra(int[] costArr, int[][] edge, int N) {
+        PriorityQueue<Road> roadQ = new PriorityQueue<>();
+        roadQ.offer(new Road(1, 0));
+
+        while (!roadQ.isEmpty()) {
+            Road route = roadQ.poll();
+
+            for (int i = 1; i <= N; i++) {
+                if (edge[route.city][i] != MAX) {
+                    if (costArr[i] > costArr[route.city] + edge[route.city][i]) {
+                        costArr[i] = costArr[route.city] + edge[route.city][i];
+
+                        roadQ.offer(new Road(i, costArr[i]));
+                    }
+                }
+            }
+        }
+
+        return costArr;
     }
 
     private int[][] getEdge(int[][] road, int N) {
