@@ -25,7 +25,22 @@ public class ex {
         int[] costArr = initArr(N);
         int[][] edge = getEdge(road, N);
 
+        answer = getAnswer(costArr, edge, N, K);
+
         return answer;
+    }
+
+    private int getAnswer(int[] costArr, int[][] edge, int N, int K) {
+        costArr = dijkstra(costArr, edge, N);
+        int result = 0;
+
+        for (int i = 1; i <= N; i++) {
+            if (costArr[i] <= K) {
+                result++;
+            }
+        }
+
+        return result;
     }
 
     private int[][] getEdge(int[][] road, int N) {
