@@ -1,5 +1,7 @@
 package org.example.배달;
 
+import java.util.Arrays;
+
 public class ex {
     final int MAX = 500001;
 
@@ -20,7 +22,17 @@ public class ex {
     public int solution(int N, int[][] road, int K) {
         int answer = 0;
 
+        int[] costArr = initArr(N);
+
         return answer;
+    }
+
+    private int[] initArr(int N) {
+        int[] result = new int[N + 1];
+        Arrays.fill(result, MAX);
+        result[1] = 0;
+
+        return result;
     }
 
     public static void main(String[] args) {
