@@ -1,6 +1,22 @@
 package org.example.배달;
 
 public class ex {
+    final int MAX = 500001;
+
+    class Road implements Comparable<Road> {
+        int city;
+        int cost;
+
+        public Road(int city, int cost) {
+            this.city = city;
+            this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(Road o) {
+            return this.cost > o.cost ? 1 : -1;
+        }
+    }
     public int solution(int N, int[][] road, int K) {
         int answer = 0;
 
