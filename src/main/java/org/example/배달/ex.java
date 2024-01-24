@@ -23,8 +23,26 @@ public class ex {
         int answer = 0;
 
         int[] costArr = initArr(N);
+        int[][] edge = getEdge(road, N);
 
         return answer;
+    }
+
+    private int[][] getEdge(int[][] road, int N) {
+        int[][] result = new int[N + 1][N + 1];
+
+        for (int i = 1; i <= N; i++) {
+            Arrays.fill(result[i], MAX);
+        }
+
+        for (int[] r : road) {
+            int cost = Math.min(result[r[0]][r[1]], r[2]);
+
+            result[r[0]][r[1]] = cost;
+            result[r[1]][r[0]] = cost;
+        }
+
+        return result;
     }
 
     private int[] initArr(int N) {
