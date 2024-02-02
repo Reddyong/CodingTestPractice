@@ -8,6 +8,7 @@ import java.util.List;
 public class ex {
     public int solution(int[][] routes) {
         int answer = 0;
+
         int checkPoint = -30000;
         List<Actions> list = new ArrayList<>();
 
