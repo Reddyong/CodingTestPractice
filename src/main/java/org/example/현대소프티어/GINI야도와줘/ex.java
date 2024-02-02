@@ -30,6 +30,17 @@ public class ex {
 
             if (temp != count) {
                 updateRain();
+                changeRain();
+            }
+        }
+    }
+
+    private static void changeRain() {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j].equals("$")) {
+                    map[i][j] = "*";
+                }
             }
         }
     }
