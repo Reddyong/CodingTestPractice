@@ -1,6 +1,8 @@
 package org.example.현대소프티어.GINI야도와줘;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class ex {
@@ -10,11 +12,50 @@ public class ex {
     static int C;
     static String[][] map;
     static int[] wash = new int[2];
+    static Queue<int[]> queue = new LinkedList<>();
+    static int[] dx = {1, 0, -1, 0};
+    static int[] dy = {0, 1, 0, -1};
 
     public static void main(String[] args) {
 
         init();
 
+        queue.add(new int[]{wash[0], wash[1], 0});
+
+        while (!queue.isEmpty()) {
+            int[] poll = queue.poll();
+            int x = poll[0];
+            int y = poll[1];
+            int count = poll[2];
+
+            if (temp != count) {
+                updateRain();
+            }
+        }
+    }
+
+    private static void updateRain() {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j].equals(".")) {
+                    checkRain(i, j);
+                }
+            }
+        }
+    }
+
+    private static void checkRain(int i, int j) {
+        for (int a = 0; a < 4; a++) {
+            int newI = i + dx[a];
+            int newJ = j + dy[a];
+
+            if (newI < 0 || newI >= R || newJ < 0 || newJ >= C) {
+                continue;
+            }
+            if (map[newI][newJ].equals(".") || map[newI][newJ].equals("W")) {
+                map[newI][newJ] = "$";
+            }
+        }
     }
 
     private static void init() {
