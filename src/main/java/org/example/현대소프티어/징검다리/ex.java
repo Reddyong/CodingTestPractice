@@ -19,7 +19,14 @@ public class ex {
     }
 
     private static void getAnswer() {
-
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < i; j++) {
+                if (stones[i] > stones[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            result = Math.max(result, dp[i]);
+        }
     }
 
     private static void init() throws IOException {
