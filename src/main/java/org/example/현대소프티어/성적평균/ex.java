@@ -13,6 +13,14 @@ public class ex {
 
         init();
         getAvg();
+        showAnswer();
+    }
+
+    private static void showAnswer() {
+        for (double result : results) {
+            System.out.printf("%.2f", result);
+            System.out.println();
+        }
     }
 
     private static void getAvg() {
