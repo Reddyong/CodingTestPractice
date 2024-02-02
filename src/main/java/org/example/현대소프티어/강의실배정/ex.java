@@ -50,6 +50,11 @@ public class ex {
 
         init();
         getAnswer();
+        showAnswer();
+    }
+
+    private static void showAnswer() {
+        System.out.println(result);
     }
 
     private static void getAnswer() {
