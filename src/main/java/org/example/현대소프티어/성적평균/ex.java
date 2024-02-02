@@ -12,6 +12,32 @@ public class ex {
     public static void main(String[] args) {
 
         init();
+        getAvg();
+    }
+
+    private static void getAvg() {
+        for (int i = 0; i < K; i++) {
+            int startIdx = ranges[i][0] - 1;
+            int endIdx = ranges[i][1] - 1;
+
+            double avg = getAnswer(startIdx, endIdx);
+
+            results[i] = avg;
+        }
+    }
+
+    private static double getAnswer(int startIdx, int endIdx) {
+
+        double num = 0;
+        double count = endIdx - startIdx + 1;
+
+        for (int i = startIdx; i <= endIdx; i++) {
+            num += scores[i];
+        }
+
+        num /= count;
+
+        return num;
     }
 
     private static void init() {
