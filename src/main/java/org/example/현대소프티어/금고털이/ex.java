@@ -17,7 +17,8 @@ public class ex {
 
     }
     public static void main(String[] args) throws IOException {
-
+        Queue<int[]> queue = new LinkedList<>();
+        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         List<Jew> list = new ArrayList<>();
         int result = 0;
