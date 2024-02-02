@@ -18,6 +18,14 @@ class Time implements Comparable<Time>{
         this.endTime = endTime;
     }
 
+    public int getStartTime() {
+        return startTime;
+    }
+
+    public int getEndTime() {
+        return endTime;
+    }
+
     @Override
     public int compareTo(Time t) {
         return this.endTime - t.endTime;
@@ -35,11 +43,26 @@ public class ex {
 
     static int N;
     static List<Time> times = new ArrayList<>();
+    static int checkPoint = 0;
+    static int result = 0;
 
     public static void main(String[] args) throws IOException {
 
         init();
+        getAnswer();
+    }
 
+    private static void getAnswer() {
+
+        for (Time time : times) {
+            int start = time.getStartTime();
+            int end = time.getEndTime();
+
+            if (start >= checkPoint) {
+                checkPoint = end;
+                result++;
+            }
+        }
     }
 
     private static void init() throws IOException {
