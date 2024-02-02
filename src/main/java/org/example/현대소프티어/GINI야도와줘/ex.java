@@ -32,7 +32,41 @@ public class ex {
                 updateRain();
                 changeRain();
             }
+
+            if (map[x][y].equals(".")) {
+                map[x][y] = "W";
+            }
+
+            for (int i = 0; i < 4; i++) {
+                int newI = x + dx[i];
+                int newJ = y + dy[i];
+
+                if (newI < 0 || newI >= R || newJ < 0 || newJ >= C) {
+                    continue;
+                }
+                if (map[newI][newJ].equals("H")) {
+                    result = count + 1;
+                    break;
+                }
+                if (map[newI][newJ].equals(".")) {
+                    queue.add(new int[]{newI, newJ, count + 1});
+                    map[newI][newJ] = "W";
+                }
+            }
+
+            temp = count;
+
+            if (result != -1) {
+                break;
+            }
         }
+
+        if (result == -1) {
+            System.out.println("FAIL");
+        } else {
+            System.out.println(result);
+        }
+
     }
 
     private static void changeRain() {
