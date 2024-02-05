@@ -3,8 +3,7 @@ package org.example.현대소프티어.징검다리;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class ex {
     static int N;
