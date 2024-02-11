@@ -3,9 +3,25 @@ package org.example.fastcampus.공원산책;
 import java.util.Arrays;
 
 public class ex {
+    String[][] map;
+    int[] cur;
     public int[] solution(String[] park, String[] routes) {
-        int[] answer = {};
+        int[] answer = new int[2];
+
+        init(park);
+
         return answer;
+    }
+
+    private void init(String[] park) {
+        map = new String[park.length][park[0].length()];
+        cur = new int[2];
+
+        for (int i = 0; i < park.length; i++) {
+            for (int j = 0; j < park[i].length(); j++) {
+                map[i][j] = park[i].substring(j, j + 1);
+            }
+        }
     }
 
     public static void main(String[] args) {
