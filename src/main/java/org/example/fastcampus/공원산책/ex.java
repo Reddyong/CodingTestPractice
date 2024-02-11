@@ -9,8 +9,15 @@ public class ex {
         int[] answer = new int[2];
 
         init(park);
-
+        routing(routes);
         return answer;
+    }
+
+    private void routing(String[] routes) {
+        for (String route : routes) {
+            String[] split = route.split(" ");
+            String direction = split[0];
+        }
     }
 
     private void init(String[] park) {
@@ -20,6 +27,16 @@ public class ex {
         for (int i = 0; i < park.length; i++) {
             for (int j = 0; j < park[i].length(); j++) {
                 map[i][j] = park[i].substring(j, j + 1);
+            }
+        }
+
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j].equals("S")) {
+                    cur[0] = i;
+                    cur[1] = j;
+                    return;
+                }
             }
         }
     }
