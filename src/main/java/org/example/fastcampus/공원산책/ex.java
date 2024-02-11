@@ -10,6 +10,14 @@ public class ex {
 
         init(park);
         routing(routes);
+        answer = getAnswer(answer);
+        return answer;
+    }
+
+    private int[] getAnswer(int[] answer) {
+        answer[0] = cur[0];
+        answer[1] = cur[1];
+
         return answer;
     }
 
@@ -17,6 +25,64 @@ public class ex {
         for (String route : routes) {
             String[] split = route.split(" ");
             String direction = split[0];
+            int distance = Integer.parseInt(split[1]);
+            moveDog(direction, distance);
+        }
+    }
+
+    private void moveDog(String direction, int distance) {
+        int curX = cur[0];
+        int curY = cur[1];
+        boolean check = true;
+
+        if (direction.equals("E")) {
+            for (int i = 1; i <= distance; i++) {
+                curY++;
+                if (curY >= map[0].length || map[curX][curY].equals("X")) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                cur[1] = curY;
+            }
+        } else if (direction.equals("W")) {
+            for (int i = 1; i <= distance; i++) {
+                curY--;
+                if (curY < 0 || map[curX][curY].equals("X")) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                cur[1] = curY;
+            }
+        } else if (direction.equals("S")) {
+            for (int i = 1; i <= distance; i++) {
+                curX++;
+                if (curX >= map.length || map[curX][curY].equals("X")) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                cur[0] = curX;
+            }
+        } else {
+            for (int i = 1; i <= distance; i++) {
+                curX--;
+                if (curX < 0 || map[curX][curY].equals("X")) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                cur[0] = curX;
+            }
         }
     }
 
