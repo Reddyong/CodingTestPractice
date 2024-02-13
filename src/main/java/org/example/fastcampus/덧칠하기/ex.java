@@ -2,7 +2,19 @@ package org.example.fastcampus.덧칠하기;
 
 public class ex {
     public int solution(int n, int m, int[] section) {
-        int answer = 0;
+        int answer = 1;
+        int start = section[0];
+        int end = section[0] + m - 1;
+
+        for (int s : section) {
+            if (s >= start && s <= end) {
+                continue;
+            }
+            start = s;
+            end = start + m - 1;
+            answer++;
+        }
+
         return answer;
     }
 
