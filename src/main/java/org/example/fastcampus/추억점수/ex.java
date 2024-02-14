@@ -11,8 +11,23 @@ public class ex {
         int[] answer = new int[photo.length];
 
         init(name, yearning);
+        answer = checkPhoto(photo);
 
         return answer;
+    }
+
+    private int[] checkPhoto(String[][] photo) {
+        int[] temp = new int[photo.length];
+
+        for (int i = 0; i < photo.length; i++) {
+            for (String p : photo[i]) {
+                if (map.containsKey(p)) {
+                    temp[i] += map.get(p);
+                }
+            }
+        }
+
+        return temp;
     }
 
     private void init(String[] name, int[] yearning) {
