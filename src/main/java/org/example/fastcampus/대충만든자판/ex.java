@@ -12,9 +12,29 @@ public class ex {
         for (String key : keymap) {
             makeKeyMap(key);
         }
-        System.out.println("map = " + map);
+
+        for (int i = 0; i < targets.length; i++) {
+            answer[i] = getResult(targets[i]);
+        }
 
         return answer;
+    }
+
+    private int getResult(String target) {
+        int sum = 0;
+
+        for (int i = 0; i < target.length(); i++) {
+            char cur = target.charAt(i);
+
+            if (!map.containsKey(cur)) {
+                sum = -1;
+                break;
+            }
+
+            sum += map.get(cur);
+        }
+
+        return sum;
     }
 
     private void makeKeyMap(String key) {
