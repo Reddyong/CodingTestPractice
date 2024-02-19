@@ -1,4 +1,4 @@
-package org.example.fastcampus.대충만든자판;
+package org.example.fastcampus.Lv1.대충만든자판;
 
 import java.util.Arrays;
 import java.util.HashMap;

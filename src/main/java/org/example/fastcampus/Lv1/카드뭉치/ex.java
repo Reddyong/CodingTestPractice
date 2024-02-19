@@ -1,4 +1,4 @@
-package org.example.fastcampus.카드뭉치;
+package org.example.fastcampus.Lv1.카드뭉치;
 
 import java.util.Arrays;
 import java.util.LinkedList;

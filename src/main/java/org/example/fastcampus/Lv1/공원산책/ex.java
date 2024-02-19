@@ -1,4 +1,4 @@
-package org.example.fastcampus.공원산책;
+package org.example.fastcampus.Lv1.공원산책;
 
 import java.util.Arrays;
 

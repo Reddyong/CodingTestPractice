@@ -1,6 +1,5 @@
-package org.example.fastcampus.추억점수;
+package org.example.fastcampus.Lv1.추억점수;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;

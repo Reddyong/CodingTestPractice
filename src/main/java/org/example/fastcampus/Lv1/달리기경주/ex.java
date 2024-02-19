@@ -1,4 +1,4 @@
-package org.example.fastcampus.달리기경주;
+package org.example.fastcampus.Lv1.달리기경주;
 
 import java.util.*;
 

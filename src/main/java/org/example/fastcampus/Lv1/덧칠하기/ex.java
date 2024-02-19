@@ -1,4 +1,4 @@
-package org.example.fastcampus.덧칠하기;
+package org.example.fastcampus.Lv1.덧칠하기;
 
 public class ex {
     public int solution(int n, int m, int[] section) {
