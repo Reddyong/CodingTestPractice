@@ -1,5 +1,7 @@
 package org.example.fastcampus.Lv1.가장많이받은선물;
 
+import java.util.Arrays;
+
 public class ex {
     int[][] checkGift;
     int[] giftNum;
@@ -8,6 +10,8 @@ public class ex {
         int answer = 0;
 
         init(friends, gifts);
+        answer = getAnswer();
+
         return answer;
     }
 
@@ -25,6 +29,21 @@ public class ex {
         }
 
         putNumInfo();
+    }
+
+    private void putGiftInfo(String give, String receive, String[] friends) {
+        int gIndex = 0;
+        int rIndex = 0;
+
+        for (int i = 0; i < friends.length; i++) {
+            if (friends[i].equals(give)) {
+                gIndex = i;
+            } else if (friends[i].equals(receive)) {
+                rIndex = i;
+            }
+        }
+
+        checkGift[gIndex][rIndex]++;
     }
 
     private void putNumInfo() {
@@ -45,19 +64,38 @@ public class ex {
         return give - receive;
     }
 
-    private void putGiftInfo(String give, String receive, String[] friends) {
-        int gIndex = 0;
-        int rIndex = 0;
+    private int getAnswer() {
+        for (int i = 0; i < checkGift.length; i++) {
+            for (int j = 0; j < checkGift[i].length; j++) {
+                if (i != j) {
+                    int g = checkGift[i][j];
+                    int r = checkGift[j][i];
 
-        for (int i = 0; i < friends.length; i++) {
-            if (friends[i].equals(give)) {
-                gIndex = i;
-            } else if (friends[i].equals(receive)) {
-                rIndex = i;
+                    if (g > r) {
+                        ansArr[i]++;
+                        continue;
+                    }
+
+                    if (g == r) {
+                        int gGift = giftNum[i];
+                        int rGift = giftNum[j];
+                        if (gGift > rGift) {
+                            ansArr[i]++;
+                            continue;
+                        }
+                    }
+                }
             }
         }
 
-        checkGift[gIndex][rIndex]++;
+        int max = 0;
+        for (int a : ansArr) {
+            if (a > max) {
+                max = a;
+            }
+        }
+
+        return max;
     }
 
     public static void main(String[] args) {
