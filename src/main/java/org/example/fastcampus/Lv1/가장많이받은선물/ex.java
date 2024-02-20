@@ -33,6 +33,18 @@ public class ex {
         }
     }
 
+    private int getNumInfo(int idx) {
+        int give = 0;
+        int receive = 0;
+
+        for (int i = 0; i < giftNum.length; i++) {
+            give += checkGift[idx][i];
+            receive += checkGift[i][idx];
+        }
+
+        return give - receive;
+    }
+
     private void putGiftInfo(String give, String receive, String[] friends) {
         int gIndex = 0;
         int rIndex = 0;
