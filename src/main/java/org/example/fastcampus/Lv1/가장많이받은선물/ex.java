@@ -1,9 +1,30 @@
 package org.example.fastcampus.Lv1.가장많이받은선물;
 
 public class ex {
+    int[][] checkGift;
+    int[] giftNum;
+    int[] ansArr;
     public int solution(String[] friends, String[] gifts) {
         int answer = 0;
+
+        init(friends, gifts);
         return answer;
+    }
+
+    private void init(String[] friends, String[] gifts) {
+        checkGift = new int[friends.length][friends.length];
+        giftNum = new int[friends.length];
+        ansArr = new int[friends.length];
+
+        for (String gift : gifts) {
+            String[] split = gift.split(" ");
+            String give = split[0];
+            String receive = split[1];
+
+            putGiftInfo(give, receive, friends);
+        }
+
+        putNumInfo();
     }
 
     public static void main(String[] args) {
