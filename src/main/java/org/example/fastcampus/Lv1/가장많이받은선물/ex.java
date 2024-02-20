@@ -27,6 +27,21 @@ public class ex {
         putNumInfo();
     }
 
+    private void putGiftInfo(String give, String receive, String[] friends) {
+        int gIndex = 0;
+        int rIndex = 0;
+
+        for (int i = 0; i < friends.length; i++) {
+            if (friends[i].equals(give)) {
+                gIndex = i;
+            } else if (friends[i].equals(receive)) {
+                rIndex = i;
+            }
+        }
+
+        checkGift[gIndex][rIndex]++;
+    }
+
     public static void main(String[] args) {
         ex sol = new ex();
         int solution1 = sol.solution(new String[]{"muzi", "ryan", "frodo", "neo"}, new String[]{"muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"});
