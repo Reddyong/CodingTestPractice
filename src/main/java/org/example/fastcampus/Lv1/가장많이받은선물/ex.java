@@ -27,6 +27,12 @@ public class ex {
         putNumInfo();
     }
 
+    private void putNumInfo() {
+        for (int i = 0; i < giftNum.length; i++) {
+            giftNum[i] = getNumInfo(i);
+        }
+    }
+
     private void putGiftInfo(String give, String receive, String[] friends) {
         int gIndex = 0;
         int rIndex = 0;
