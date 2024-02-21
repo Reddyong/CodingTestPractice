@@ -10,8 +10,31 @@ public class ex {
         int[] answer = {};
 
         init(today, terms);
+        getResult(privacies);
 
         return answer;
+    }
+
+    private void getResult(String[] privacies) {
+        for (int i = 0; i < privacies.length; i++) {
+            String[] split = privacies[i].split(" ");
+            String grade = split[1];
+            int date = changeYearToDay(split[0]);
+
+            if (checkIsDestroy(grade, date)) {
+                ansList.add(i + 1);
+            }
+        }
+    }
+
+    private boolean checkIsDestroy(String grade, int date) {
+        int checkDate = (termMap.get(grade) * 28) + date - 1;
+
+        if (checkDate < todayNum) {
+            return true;
+        }
+
+        return false;
     }
 
     private void init(String today, String[] terms) {
