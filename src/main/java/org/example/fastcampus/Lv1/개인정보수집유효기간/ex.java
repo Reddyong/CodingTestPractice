@@ -11,8 +11,19 @@ public class ex {
 
         init(today, terms);
         getResult(privacies);
+        answer = changeToArr();
 
         return answer;
+    }
+
+    private int[] changeToArr() {
+        int[] ans = new int[ansList.size()];
+
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = ansList.get(i);
+        }
+
+        return ans;
     }
 
     private void getResult(String[] privacies) {
