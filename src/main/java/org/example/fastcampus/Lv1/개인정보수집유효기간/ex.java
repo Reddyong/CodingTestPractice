@@ -16,14 +16,24 @@ public class ex {
         return answer;
     }
 
-    private int[] changeToArr() {
-        int[] ans = new int[ansList.size()];
+    private void init(String today, String[] terms) {
+        todayNum = changeYearToDay(today);
 
-        for (int i = 0; i < ans.length; i++) {
-            ans[i] = ansList.get(i);
+        for (String term : terms) {
+            String[] split = term.split(" ");
+            String grade = split[0];
+            int gradeMonth = Integer.parseInt(split[1]);
+
+            termMap.put(grade, gradeMonth);
         }
+    }
 
-        return ans;
+    private int changeYearToDay(String date) {
+        int year = Integer.parseInt(date.substring(0, 4)) - 2000;
+        int month = Integer.parseInt(date.substring(5, 7));
+        int day = Integer.parseInt(date.substring(8));
+
+        return (year * 12 * 28) + month * 28 + day;
     }
 
     private void getResult(String[] privacies) {
@@ -48,24 +58,14 @@ public class ex {
         return false;
     }
 
-    private void init(String today, String[] terms) {
-        todayNum = changeYearToDay(today);
+    private int[] changeToArr() {
+        int[] ans = new int[ansList.size()];
 
-        for (String term : terms) {
-            String[] split = term.split(" ");
-            String grade = split[0];
-            int gradeMonth = Integer.parseInt(split[1]);
-
-            termMap.put(grade, gradeMonth);
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = ansList.get(i);
         }
-    }
 
-    private int changeYearToDay(String date) {
-        int year = Integer.parseInt(date.substring(0, 4)) - 2000;
-        int month = Integer.parseInt(date.substring(5, 7));
-        int day = Integer.parseInt(date.substring(8));
-
-        return (year * 12 * 28) + month * 28 + day;
+        return ans;
     }
 
     public static void main(String[] args) {
