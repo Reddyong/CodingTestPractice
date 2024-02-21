@@ -1,14 +1,37 @@
 package org.example.fastcampus.Lv1.개인정보수집유효기간;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ex {
+    int todayNum;
+    Map<String, Integer> termMap = new HashMap<>();
+    List<Integer> ansList = new ArrayList<>();
     public int[] solution(String today, String[] terms, String[] privacies) {
         int[] answer = {};
 
+        init(today, terms);
+
         return answer;
+    }
+
+    private void init(String today, String[] terms) {
+        todayNum = changeYearToDay(today);
+
+        for (String term : terms) {
+            String[] split = term.split(" ");
+            String grade = split[0];
+            int gradeMonth = Integer.parseInt(split[1]);
+
+            termMap.put(grade, gradeMonth);
+        }
+    }
+
+    private int changeYearToDay(String date) {
+        int year = Integer.parseInt(date.substring(0, 4)) - 2000;
+        int month = Integer.parseInt(date.substring(5, 7));
+        int day = Integer.parseInt(date.substring(8));
+
+        return (year * 12 * 28) + month * 28 + day;
     }
 
     public static void main(String[] args) {
