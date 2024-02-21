@@ -1,8 +1,28 @@
 package org.example.fastcampus.Lv0.겹치는선분의길이;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class ex {
     public int solution(int[][] lines) {
         int answer = 0;
+        int[] check = new int[200];
+
+        for (int[] line : lines) {
+            int start = line[0] + 100;
+            int end = line[1] + 100;
+
+            for (int i = start; i < end; i++) {
+                check[i]++;
+            }
+        }
+
+        for (int c : check) {
+            if (c > 1) {
+                answer++;
+            }
+        }
+
         return answer;
     }
 

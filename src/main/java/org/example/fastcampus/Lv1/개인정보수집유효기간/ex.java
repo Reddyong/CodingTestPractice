@@ -1,10 +1,13 @@
 package org.example.fastcampus.Lv1.개인정보수집유효기간;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ex {
     public int[] solution(String today, String[] terms, String[] privacies) {
         int[] answer = {};
+
         return answer;
     }
 
