@@ -6,8 +6,23 @@ public class ex {
         int answer = 0;
 
         isArithOrGeo(common);
+        answer = getResult(common);
 
         return answer;
+    }
+
+    private int getResult(int[] common) {
+        int lastNum = common[common.length - 1];
+        int secondNum = common[common.length - 2];
+        int dif = 0;
+
+        if (check.equals("arith")) {
+            dif = lastNum - secondNum;
+            return lastNum + dif;
+        }
+
+        dif = lastNum / secondNum;
+        return lastNum * dif;
     }
 
     private void isArithOrGeo(int[] common) {
