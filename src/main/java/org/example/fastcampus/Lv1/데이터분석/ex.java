@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.sun.tools.javac.util.Context.checkState;
-
 public class ex {
     int extNum;
     int sortNum;
@@ -14,8 +12,21 @@ public class ex {
         int[][] answer;
 
         initList(data, ext, val_ext, sort_by);
+        answer = getResult();
 
         return answer;
+    }
+
+    private int[][] getResult() {
+        int[][] ans = new int[saveList.size()][4];
+
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = saveList.get(i);
+        }
+
+        Arrays.sort(ans, ((o1, o2) -> o1[sortNum] - o2[sortNum]));
+
+        return ans;
     }
 
     private void initList(int[][] data, String ext, int valExt, String sortBy) {
