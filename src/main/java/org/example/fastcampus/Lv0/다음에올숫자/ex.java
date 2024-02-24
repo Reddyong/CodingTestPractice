@@ -1,10 +1,23 @@
 package org.example.fastcampus.Lv0.다음에올숫자;
 
 public class ex {
+    String check = "";
     public int solution(int[] common) {
         int answer = 0;
 
+        isArithOrGeo(common);
+
         return answer;
+    }
+
+    private void isArithOrGeo(int[] common) {
+        if ((common[1] - common[0]) == (common[2] - common[1])) {
+            check = "arith";
+            return;
+        }
+        if ((common[1] / common[0]) == (common[2] / common[1])) {
+            check = "geo";
+        }
     }
 
     public static void main(String[] args) {
