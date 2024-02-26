@@ -1,9 +1,31 @@
 package org.example.fastcampus.Lv1.없는숫자더하기;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ex {
+    Set<Integer> set = new HashSet<>(Set.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
     public int solution(int[] numbers) {
         int answer = -1;
+
+        answer = getMultiply(numbers);
         return answer;
+    }
+
+    private int getMultiply(int[] numbers) {
+        int ans = 0;
+
+        for (int number : numbers) {
+            if (set.contains(number)) {
+                set.remove(number);
+            }
+        }
+
+        for (Integer integer : set) {
+            ans += integer;
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
