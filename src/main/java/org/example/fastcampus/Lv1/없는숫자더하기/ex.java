@@ -8,11 +8,11 @@ public class ex {
     public int solution(int[] numbers) {
         int answer = -1;
 
-        answer = getMultiply(numbers);
+        answer = getPlusNum(numbers);
         return answer;
     }
 
-    private int getMultiply(int[] numbers) {
+    private int getPlusNum(int[] numbers) {
         int ans = 0;
 
         for (int number : numbers) {
