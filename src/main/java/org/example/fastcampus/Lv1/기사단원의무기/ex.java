@@ -8,9 +8,24 @@ public class ex {
         int answer = 0;
 
         initArr(number);
-
+        answer = getTotalWeight(limit, power);
 
         return answer;
+    }
+
+    private int getTotalWeight(int limit, int power) {
+        int ans = 0;
+
+        for (int num : numOfDiv) {
+            if (num > limit) {
+                ans += power;
+                continue;
+            }
+
+            ans += num;
+        }
+
+        return ans;
     }
 
     private void initArr(int number) {
