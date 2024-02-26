@@ -5,15 +5,44 @@ import java.util.Map;
 
 public class ex {
     Map<String, Integer> map = new HashMap<>();
-    String temp = "";
     public String solution(String[] survey, int[] choices) {
         String answer = "";
 
         initChoices(choices);
         initMap(survey, choices);
-        System.out.println("map = " + map);
+        answer = getResult();
 
         return answer;
+    }
+
+    private String getResult() {
+        StringBuilder sb = new StringBuilder();
+
+        if (map.get("R") - map.get("T") >= 0) {
+            sb.append("R");
+        } else {
+            sb.append("T");
+        }
+
+        if (map.get("C") - map.get("F") >= 0) {
+            sb.append("C");
+        } else {
+            sb.append("F");
+        }
+
+        if (map.get("J") - map.get("M") >= 0) {
+            sb.append("J");
+        } else {
+            sb.append("M");
+        }
+
+        if (map.get("A") - map.get("N") >= 0) {
+            sb.append("A");
+        } else {
+            sb.append("N");
+        }
+
+        return sb.toString();
     }
 
     private void initMap(String[] survey, int[] choices) {
