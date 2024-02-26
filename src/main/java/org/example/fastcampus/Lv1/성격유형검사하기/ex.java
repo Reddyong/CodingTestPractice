@@ -1,10 +1,23 @@
 package org.example.fastcampus.Lv1.성격유형검사하기;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ex {
+    Map<String, Integer> map = new HashMap<>();
+    String temp = "";
     public String solution(String[] survey, int[] choices) {
         String answer = "";
 
+        initChoices(choices);
+
         return answer;
+    }
+
+    private void initChoices(int[] choices) {
+        for (int i = 0; i < choices.length; i++) {
+            choices[i] -= 4;
+        }
     }
 
     public static void main(String[] args) {
