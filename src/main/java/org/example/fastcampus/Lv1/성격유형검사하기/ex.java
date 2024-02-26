@@ -10,8 +10,38 @@ public class ex {
         String answer = "";
 
         initChoices(choices);
+        initMap(survey, choices);
+        System.out.println("map = " + map);
 
         return answer;
+    }
+
+    private void initMap(String[] survey, int[] choices) {
+        initFirstMap();
+
+        for (int i = 0; i < survey.length; i++) {
+            String[] split = survey[i].split("");
+
+            if (choices[i] > 0) {
+                map.put(split[1], map.get(split[1]) + choices[i]);
+                continue;
+            }
+
+            if (choices[i] < 0) {
+                map.put(split[0], map.get(split[0]) + (-1) * choices[i]);
+            }
+        }
+    }
+
+    private void initFirstMap() {
+        map.put("R", 0);
+        map.put("T", 0);
+        map.put("C", 0);
+        map.put("F", 0);
+        map.put("J", 0);
+        map.put("M", 0);
+        map.put("A", 0);
+        map.put("N", 0);
     }
 
     private void initChoices(int[] choices) {
