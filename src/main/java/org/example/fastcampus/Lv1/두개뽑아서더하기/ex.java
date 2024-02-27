@@ -3,10 +3,26 @@ package org.example.fastcampus.Lv1.두개뽑아서더하기;
 import java.util.*;
 
 public class ex {
+    List<Integer> list = new ArrayList<>();
     public int[] solution(int[] numbers) {
         int[] answer = {};
 
+        saveSumToList(numbers);
+
+
         return answer;
+    }
+
+    private void saveSumToList(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                int sum = numbers[i] + numbers[j];
+
+                if (!list.contains(sum)) {
+                    list.add(sum);
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

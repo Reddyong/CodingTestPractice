@@ -1,8 +1,13 @@
 package org.example.fastcampus.Lv1.크레인인형뽑기게임;
 
+import java.util.Stack;
+
 public class ex {
+    Stack<Integer> stack = new Stack<>();
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
+
+
         return answer;
     }
 
