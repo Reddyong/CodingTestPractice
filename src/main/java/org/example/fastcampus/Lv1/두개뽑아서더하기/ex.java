@@ -8,9 +8,21 @@ public class ex {
         int[] answer = {};
 
         saveSumToList(numbers);
-
+        answer = listToArr();
 
         return answer;
+    }
+
+    private int[] listToArr() {
+        int[] ans = new int[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            ans[i] = list.get(i);
+        }
+
+        Arrays.sort(ans);
+
+        return ans;
     }
 
     private void saveSumToList(int[] numbers) {
