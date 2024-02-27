@@ -1,5 +1,6 @@
 package org.example.fastcampus.Lv1.크레인인형뽑기게임;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class ex {
@@ -7,8 +8,17 @@ public class ex {
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
 
+        moves = movesToIndex(moves);
 
         return answer;
+    }
+
+    private int[] movesToIndex(int[] moves) {
+        for (int i = 0; i < moves.length; i++) {
+            moves[i]--;
+        }
+
+        return moves;
     }
 
     public static void main(String[] args) {
