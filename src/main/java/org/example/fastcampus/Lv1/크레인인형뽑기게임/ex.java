@@ -9,8 +9,43 @@ public class ex {
         int answer = 0;
 
         moves = movesToIndex(moves);
+        answer = getTotal(board, moves);
 
         return answer;
+    }
+
+    private int getTotal(int[][] board, int[] moves) {
+        int ans = 0;
+
+        for (int move : moves) {
+            int num = findNum(board, move);
+
+            if (num == -1) {
+                continue;
+            }
+
+            if (!stack.isEmpty() && num == stack.peek()) {
+                stack.pop();
+                ans += 2;
+                continue;
+            }
+
+            stack.push(num);
+        }
+
+        return ans;
+    }
+
+    private int findNum(int[][] board, int move) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][move] != 0) {
+                int temp = board[i][move];
+                board[i][move] = 0;
+                return temp;
+            }
+        }
+
+        return -1;
     }
 
     private int[] movesToIndex(int[] moves) {
