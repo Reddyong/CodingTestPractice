@@ -11,8 +11,38 @@ public class ex {
 
         init(id_list, report);
         saveReport();
+        answer = getResult(id_list, k);
 
         return answer;
+    }
+
+    private int[] getResult(String[] idList, int k) {
+        int[] ans = new int[idList.length];
+
+        saveToMap(k);
+        ans = mapToArr(idList, ans);
+
+        return ans;
+    }
+
+    private int[] mapToArr(String[] idList, int[] ans) {
+        for (int i = 0; i < idList.length; i++) {
+            ans[i] = ansMap.get(idList[i]);
+        }
+
+        return ans;
+    }
+
+    private void saveToMap(int k) {
+        for (String rep : reportSet) {
+            String[] split = rep.split(" ");
+            String give = split[0];
+            String receive = split[1];
+
+            if (called.get(receive) >= k) {
+                ansMap.put(give, ansMap.get(give) + 1);
+            }
+        }
     }
 
     private void saveReport() {
