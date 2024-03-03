@@ -10,8 +10,17 @@ public class ex {
         int[] answer = new int[id_list.length];
 
         init(id_list, report);
+        saveReport();
 
         return answer;
+    }
+
+    private void saveReport() {
+        for (String rep : reportSet) {
+            String[] split = rep.split(" ");
+
+            called.put(split[1], called.get(split[1]) + 1);
+        }
     }
 
     private void init(String[] idList, String[] report) {
