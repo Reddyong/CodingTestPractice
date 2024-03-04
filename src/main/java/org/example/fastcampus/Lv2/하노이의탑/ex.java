@@ -1,11 +1,27 @@
 package org.example.fastcampus.Lv2.하노이의탑;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ex {
+    List<int[]> list = new ArrayList<>();
     public int[][] solution(int n) {
         int[][] answer = {};
+
+        dfs(n, 1, 2, 3);
         return answer;
+    }
+
+    private void dfs(int n, int s, int m, int e) {
+        if (n == 1) {
+            list.add(new int[]{s, e});
+            return;
+        }
+
+        dfs(n - 1, s, e, m);
+        list.add(new int[]{s, e});
+        dfs(n - 1, m, s, e);
     }
 
     public static void main(String[] args) {
