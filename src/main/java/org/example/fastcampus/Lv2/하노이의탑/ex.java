@@ -10,7 +10,18 @@ public class ex {
         int[][] answer = {};
 
         dfs(n, 1, 2, 3);
+        answer = getResult();
         return answer;
+    }
+
+    private int[][] getResult() {
+        int[][] ans = new int[list.size()][2];
+
+        for (int i = 0; i < list.size(); i++) {
+            ans[i] = list.get(i);
+        }
+
+        return ans;
     }
 
     private void dfs(int n, int s, int m, int e) {
