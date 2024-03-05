@@ -15,8 +15,15 @@ public class ex {
         changeToString();
         changeDots();
         deleteFirstLastDots();
+        checkIsEmpty();
 
         return answer;
+    }
+
+    private void checkIsEmpty() {
+        if (saveStr.isEmpty()) {
+            saveStr = "a";
+        }
     }
 
     private void deleteFirstLastDots() {
