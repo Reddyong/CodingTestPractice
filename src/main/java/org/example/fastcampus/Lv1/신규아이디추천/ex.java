@@ -12,8 +12,21 @@ public class ex {
         init(new_id);
         changeLowerCase();
         changeSigns();
+        changeToString();
 
         return answer;
+    }
+
+    private void changeToString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (char id : saveId) {
+            if (id != ' ') {
+                sb.append(id);
+            }
+        }
+
+        saveStr = sb.toString();
     }
 
     private void changeSigns() {
