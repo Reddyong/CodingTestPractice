@@ -11,8 +11,21 @@ public class ex {
 
         init(new_id);
         changeLowerCase();
+        changeSigns();
 
         return answer;
+    }
+
+    private void changeSigns() {
+        for (int i = 0; i < saveId.length; i++) {
+            if (Character.isAlphabetic(saveId[i]) || Character.isDigit(saveId[i])) {
+                continue;
+            }
+
+            if (!signSet.contains(saveId[i])) {
+                saveId[i] = ' ';
+            }
+        }
     }
 
     private void changeLowerCase() {
