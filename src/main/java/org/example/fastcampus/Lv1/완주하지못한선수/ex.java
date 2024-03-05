@@ -9,8 +9,25 @@ public class ex {
         String answer = "";
 
         initMap(participant);
+        answer = didNotCompleted(completion);
 
         return answer;
+    }
+
+    private String didNotCompleted(String[] completion) {
+        String ans = "";
+
+        for (String c : completion) {
+            map.put(c, map.get(c) - 1);
+        }
+
+        for (String s : map.keySet()) {
+            if (map.get(s) != 0) {
+                ans = s;
+            }
+        }
+
+        return ans;
     }
 
     private void initMap(String[] participant) {
