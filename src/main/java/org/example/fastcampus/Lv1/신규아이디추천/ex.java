@@ -14,8 +14,25 @@ public class ex {
         changeSigns();
         changeToString();
         changeDots();
+        deleteFirstLastDots();
 
         return answer;
+    }
+
+    private void deleteFirstLastDots() {
+        String first = saveStr.substring(0, 1);
+
+        if (first.equals(".")) {
+            saveStr = saveStr.substring(1);
+        }
+
+        if (!saveStr.isEmpty()) {
+            String last = saveStr.substring(saveStr.length() - 1);
+
+            if (last.equals(".")) {
+                saveStr = saveStr.substring(0, saveStr.length() - 1);
+            }
+        }
     }
 
     private void changeDots() {
