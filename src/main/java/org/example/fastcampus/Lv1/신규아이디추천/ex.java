@@ -16,8 +16,25 @@ public class ex {
         changeDots();
         deleteFirstLastDots();
         checkIsEmpty();
+        checkLength();
 
-        return answer;
+        return saveStr;
+    }
+
+    private void checkLength() {
+        if (saveStr.length() >= 16) {
+            saveStr = saveStr.substring(0, 15);
+        }
+
+        String last = saveStr.substring(saveStr.length() - 1);
+
+        if (last.equals(".")) {
+            saveStr = saveStr.substring(0, saveStr.length() - 1);
+        }
+
+        while (saveStr.length() <= 2) {
+            saveStr += saveStr.substring(saveStr.length() - 1);
+        }
     }
 
     private void checkIsEmpty() {
@@ -43,7 +60,7 @@ public class ex {
     }
 
     private void changeDots() {
-        for (int i = 0; i < saveStr.length(); i++) {
+        for (int i = 0; i < saveStr.length() - 1; i++) {
             if (saveStr.charAt(i) != '.') {
                 continue;
             }
