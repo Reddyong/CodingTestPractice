@@ -1,9 +1,22 @@
 package org.example.fastcampus.Lv2.괄호회전하기;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class ex {
+    Queue<Character> queue = new LinkedList<>();
     public int solution(String s) {
         int answer = -1;
+
+        init(s);
+
         return answer;
+    }
+
+    private void init(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            queue.add(s.charAt(i));
+        }
     }
 
     public static void main(String[] args) {
