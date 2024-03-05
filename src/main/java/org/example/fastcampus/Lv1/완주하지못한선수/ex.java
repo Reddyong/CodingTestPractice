@@ -1,12 +1,22 @@
 package org.example.fastcampus.Lv1.완주하지못한선수;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ex {
+    Map<String, Integer> map = new HashMap<>();
     public String solution(String[] participant, String[] completion) {
         String answer = "";
 
-
+        initMap(participant);
 
         return answer;
+    }
+
+    private void initMap(String[] participant) {
+        for (String p : participant) {
+            map.put(p, map.getOrDefault(p, 0) + 1);
+        }
     }
 
     public static void main(String[] args) {
