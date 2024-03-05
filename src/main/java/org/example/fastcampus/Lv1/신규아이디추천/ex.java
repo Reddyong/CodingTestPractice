@@ -13,8 +13,22 @@ public class ex {
         changeLowerCase();
         changeSigns();
         changeToString();
+        changeDots();
 
         return answer;
+    }
+
+    private void changeDots() {
+        for (int i = 0; i < saveStr.length(); i++) {
+            if (saveStr.charAt(i) != '.') {
+                continue;
+            }
+
+            if (saveStr.charAt(i) == '.' && saveStr.charAt(i + 1) == '.') {
+                saveStr = saveStr.substring(0, i) + saveStr.substring(i + 1);
+                i--;
+            }
+        }
     }
 
     private void changeToString() {
