@@ -6,8 +6,15 @@ public class ex {
     int end;
     public int solution(int n, int m, int[] section) {
 
+        initStartPoint(section, m);
 
         return answer;
+    }
+
+    private void initStartPoint(int[] section, int m) {
+        answer = 1;
+        start = section[0];
+        end = start + m - 1;
     }
 
     public static void main(String[] args) {
