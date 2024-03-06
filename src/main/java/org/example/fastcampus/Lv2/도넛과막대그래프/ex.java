@@ -15,8 +15,19 @@ public class ex {
         int[] answer = {};
 
         initMaps(edges);
+        getCreationPoint();
 
         return answer;
+    }
+
+    private void getCreationPoint() {
+        for (Integer integer : inputMap.keySet()) {
+            if (inputMap.get(integer) >= 2 && !outputMap.containsKey(integer)) {
+                creationPoint = integer;
+                mapCount = inputMap.get(integer);
+                return;
+            }
+        }
     }
 
     private void initMaps(int[][] edges) {
