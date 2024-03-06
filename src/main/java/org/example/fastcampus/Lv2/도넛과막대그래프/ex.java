@@ -5,12 +5,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ex {
+    int eight = 0;
+    int stick = 0;
+    int creationPoint = 0;
+    int mapCount = 0;
+    Map<Integer, Integer> inputMap = new HashMap<>();
+    Map<Integer, Integer> outputMap = new HashMap<>();
     public int[] solution(int[][] edges) {
         int[] answer = {};
 
-
+        initMaps(edges);
 
         return answer;
+    }
+
+    private void initMaps(int[][] edges) {
+        for (int[] edge : edges) {
+            inputMap.put(edge[0], inputMap.getOrDefault(edge[0], 0) + 1);
+            outputMap.put(edge[1], outputMap.getOrDefault(edge[1], 0) + 1);
+        }
     }
 
     public static void main(String[] args) {
