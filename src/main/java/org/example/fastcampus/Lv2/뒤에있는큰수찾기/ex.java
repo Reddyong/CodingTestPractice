@@ -1,14 +1,22 @@
 package org.example.fastcampus.Lv2.뒤에있는큰수찾기;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class ex {
+    Stack<Integer> stack = new Stack<>();
     public int[] solution(int[] numbers) {
         int[] answer = {};
 
-
+        answer = getResult(numbers);
 
         return answer;
+    }
+
+    private int[] getResult(int[] numbers) {
+        int[] ans = new int[numbers.length];
+
+
     }
 
     public static void main(String[] args) {
