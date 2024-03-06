@@ -16,8 +16,19 @@ public class ex {
 
         initMaps(edges);
         getCreationPoint();
+        deleteCreatePoint(edges);
 
         return answer;
+    }
+
+    private void deleteCreatePoint(int[][] edges) {
+        inputMap.replace(creationPoint, 0);
+
+        for (int[] edge : edges) {
+            if (edge[0] == creationPoint) {
+                outputMap.put(edge[1], outputMap.get(edge[1]) - 1);
+            }
+        }
     }
 
     private void getCreationPoint() {
