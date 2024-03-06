@@ -1,6 +1,13 @@
 package org.example.fastcampus.Lv1.키패드누르기;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ex {
+    int left = 10;
+    int right = 12;
+    Set<Integer> leftHand = new HashSet<>(Set.of(1, 4, 7, 10));
+    Set<Integer> rightHand = new HashSet<>(Set.of(3, 6, 9, 12));
     public String solution(int[] numbers, String hand) {
         String answer = "";
 
