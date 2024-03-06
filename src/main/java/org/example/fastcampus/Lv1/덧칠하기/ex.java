@@ -7,8 +7,21 @@ public class ex {
     public int solution(int n, int m, int[] section) {
 
         initStartPoint(section, m);
+        getPaintingCount(section, n, m);
 
         return answer;
+    }
+
+    private void getPaintingCount(int[] section, int n, int m) {
+        for (int sec : section) {
+            if (sec >= start && sec <= end) {
+                continue;
+            }
+
+            start = sec;
+            end = start + m - 1;
+            answer++;
+        }
     }
 
     private void initStartPoint(int[] section, int m) {
