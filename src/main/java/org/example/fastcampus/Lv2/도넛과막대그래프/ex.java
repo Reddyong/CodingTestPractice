@@ -19,8 +19,20 @@ public class ex {
         deleteCreatePoint(edges);
         getEightGraph();
         getStickGraph();
+        answer = getAnswer();
 
         return answer;
+    }
+
+    private int[] getAnswer() {
+        int[] ans = new int[4];
+
+        ans[0] = creationPoint;
+        ans[1] = mapCount - eight - stick;
+        ans[2] = stick;
+        ans[3] = eight;
+
+        return ans;
     }
 
     private void getStickGraph() {
