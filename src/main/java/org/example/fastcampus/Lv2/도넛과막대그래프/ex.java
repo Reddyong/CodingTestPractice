@@ -18,8 +18,20 @@ public class ex {
         getCreationPoint();
         deleteCreatePoint(edges);
         getEightGraph();
+        getStickGraph();
 
         return answer;
+    }
+
+    private void getStickGraph() {
+        for (Integer integer : outputMap.keySet()) {
+            if (outputMap.get(integer) == 1 && !inputMap.containsKey(integer)) {
+                stick++;
+            }
+            if (outputMap.get(integer) == 0 && !inputMap.containsKey(integer)) {
+                stick++;
+            }
+        }
     }
 
     private void getEightGraph() {
