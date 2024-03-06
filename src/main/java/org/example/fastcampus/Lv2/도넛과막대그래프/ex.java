@@ -17,8 +17,17 @@ public class ex {
         initMaps(edges);
         getCreationPoint();
         deleteCreatePoint(edges);
+        getEightGraph();
 
         return answer;
+    }
+
+    private void getEightGraph() {
+        for (Integer integer : inputMap.keySet()) {
+            if (inputMap.get(integer) >= 2 && outputMap.get(integer) == inputMap.get(integer)) {
+                eight++;
+            }
+        }
     }
 
     private void deleteCreatePoint(int[][] edges) {
