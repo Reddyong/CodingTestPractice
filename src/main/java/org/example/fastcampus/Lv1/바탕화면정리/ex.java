@@ -11,8 +11,20 @@ public class ex {
         int[] answer = {};
 
         findLowestLocation(wallpaper);
+        answer = getResult();
 
         return answer;
+    }
+
+    private int[] getResult() {
+        int[] ans = new int[4];
+
+        ans[0] = lux;
+        ans[1] = luy;
+        ans[2] = rdx + 1;
+        ans[3] = rdy + 1;
+
+        return ans;
     }
 
     private void findLowestLocation(String[] wallpaper) {
@@ -28,17 +40,17 @@ public class ex {
     }
 
     private void changeCoordinate(int i, int j) {
-        if (i < luy) {
-            luy = i;
+        if (j < luy) {
+            luy = j;
         }
-        if (j < lux) {
-            lux = j;
+        if (i < lux) {
+            lux = i;
         }
-        if (i > rdy) {
-            rdy = i;
+        if (j > rdy) {
+            rdy = j;
         }
-        if (j > rdx) {
-            rdx = j;
+        if (i > rdx) {
+            rdx = i;
         }
     }
 
