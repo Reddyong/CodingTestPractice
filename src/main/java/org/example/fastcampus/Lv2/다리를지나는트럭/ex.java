@@ -13,8 +13,48 @@ public class ex {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
 
         init();
-
+        getCrossTime(truck_weights, bridge_length, weight);
         return answer;
+    }
+
+    private void getCrossTime(int[] truckWeights, int bridgeLength, int weight) {
+        for (int truckWeight : truckWeights) {
+            while (true) {
+                if (onTheBridge.isEmpty()) {
+                    onTheBridge.add(truckWeight);
+                    totalWeight += truckWeight;
+                    time++;
+                    break;
+                }
+
+                if (onTheBridge.size() != bridgeLength && !isWeightOver(truckWeight, weight)) {
+                    onTheBridge.add(truckWeight);
+                    totalWeight += truckWeight;
+                    time++;
+                    break;
+                }
+
+                if (onTheBridge.size() != bridgeLength && isWeightOver(truckWeight, weight)) {
+                    onTheBridge.add(0);
+                    time++;
+                    continue;
+                }
+
+                if (onTheBridge.size() == bridgeLength) {
+                    Integer poll = onTheBridge.poll();
+                    totalWeight -= poll;
+                }
+            }
+        }
+
+        answer = time + bridgeLength;
+    }
+
+    private boolean isWeightOver(int truckWeight, int weight) {
+        if (totalWeight + truckWeight > weight) {
+            return true;
+        }
+        return false;
     }
 
     private void init() {
