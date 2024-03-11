@@ -9,10 +9,19 @@ public class ex {
     int totalWeight;
     int time;
     int answer;
-    Queue<Integer> onTheBridge = new LinkedList<>();
+    Queue<Integer> onTheBridge;
     public int solution(int bridge_length, int weight, int[] truck_weights) {
 
+        init();
+
         return answer;
+    }
+
+    private void init() {
+        totalWeight = 0;
+        time = 0;
+        answer = 0;
+        onTheBridge = new LinkedList<>();
     }
 
     public static void main(String[] args) {
