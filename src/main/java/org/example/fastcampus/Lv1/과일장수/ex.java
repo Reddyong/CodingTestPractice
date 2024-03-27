@@ -1,11 +1,24 @@
 package org.example.fastcampus.Lv1.과일장수;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class ex {
+    PriorityQueue<Integer> scores;
     public int solution(int k, int m, int[] score) {
         int answer = 0;
 
+        init(score);
 
         return answer;
+    }
+
+    private void init(int[] score) {
+        scores = new PriorityQueue<>(Comparator.reverseOrder());
+
+        for (int s : score) {
+            scores.add(s);
+        }
     }
 
     public static void main(String[] args) {
