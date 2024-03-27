@@ -9,8 +9,26 @@ public class ex {
         int answer = 0;
 
         init(score);
+        answer = getTotalPrice(k, m);
 
         return answer;
+    }
+
+    private int getTotalPrice(int k, int m) {
+        int sum = 0;
+        int count = 0;
+
+        while (!scores.isEmpty()) {
+            int s = scores.poll();
+            count++;
+
+            if (count == m) {
+                sum += s * m;
+                count = 0;
+            }
+        }
+
+        return sum;
     }
 
     private void init(int[] score) {
