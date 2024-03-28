@@ -10,8 +10,52 @@ public class ex {
         String answer = "";
 
         initQueue(X, Y);
+        answer = getPartnerNum();
 
         return answer;
+    }
+
+    private String getPartnerNum() {
+        PriorityQueue<String> ans = new PriorityQueue<>(Comparator.reverseOrder());
+
+        while (!pqX.isEmpty() && !pqY.isEmpty()) {
+            int x = Integer.parseInt(pqX.peek());
+            int y = Integer.parseInt(pqY.peek());
+
+            if (x > y) {
+                pqX.poll();
+                continue;
+            }
+
+            if (x < y) {
+                pqY.poll();
+                continue;
+            }
+
+            if (!ans.isEmpty() && ans.peek().equals("0") && x == 0) {
+                return "0";
+            }
+
+            ans.add(String.valueOf(x));
+            pqX.poll();
+            pqY.poll();
+        }
+
+        return getAnsToStr(ans);
+    }
+
+    private String getAnsToStr(PriorityQueue<String> ans) {
+        if (ans.isEmpty()) {
+            return "-1";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (String a : ans) {
+            sb.append(a);
+        }
+
+        return sb.toString();
     }
 
     private void initQueue(String x, String y) {
