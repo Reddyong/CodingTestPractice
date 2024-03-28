@@ -1,10 +1,32 @@
 package org.example.fastcampus.Lv1.숫자짝꿍;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class ex {
+    PriorityQueue<String> pqX;
+    PriorityQueue<String> pqY;
     public String solution(String X, String Y) {
         String answer = "";
 
+        initQueue(X, Y);
+
         return answer;
+    }
+
+    private void initQueue(String x, String y) {
+        pqX = new PriorityQueue<>(Comparator.reverseOrder());
+        pqY = new PriorityQueue<>(Comparator.reverseOrder());
+
+        for (int i = 0; i < x.length(); i++) {
+            String cur = x.substring(i, i + 1);
+            pqX.add(cur);
+        }
+
+        for (int i = 0; i < y.length(); i++) {
+            String cur = y.substring(i, i + 1);
+            pqY.add(cur);
+        }
     }
 
     public static void main(String[] args) {
