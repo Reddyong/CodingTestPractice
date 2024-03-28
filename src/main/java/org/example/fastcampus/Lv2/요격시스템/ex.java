@@ -7,8 +7,40 @@ public class ex {
         int answer = 0;
 
         initTargets(targets);
+        answer = getMissileNum(targets);
 
         return answer;
+    }
+
+    private int getMissileNum(int[][] targets) {
+        int ans = 1;
+        int start = targets[0][0];
+        int end = targets[0][1];
+
+        for (int i = 1; i < targets.length; i++) {
+            int s = targets[i][0];
+            int e = targets[i][1];
+
+            if (s >= end) {
+                start = s;
+                end = e;
+                ans++;
+                continue;
+            }
+
+            if (s < end && e >= end) {
+                start = s;
+                continue;
+            }
+
+            if (s < end && e < end) {
+                start = s;
+                end = e;
+                continue;
+            }
+        }
+
+        return ans;
     }
 
     private void initTargets(int[][] targets) {
