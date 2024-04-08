@@ -2,11 +2,26 @@ package org.example.fastcampus.Lv2.무인도여행;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ex {
+    Map<Integer, Integer> islands;
+    boolean[][] visited;
+    int[] dx = new int[]{1, 0, -1, 0};
+    int[] dy = new int[]{0, 1, 0, -1};
     public int[] solution(String[] maps) {
         int[] answer = {};
+
+        init(maps);
+
+
         return answer;
+    }
+
+    private void init(String[] maps) {
+        islands = new HashMap<>();
+        visited = new boolean[maps.length][maps[0].length()];
     }
 
     public static void main(String[] args) {
