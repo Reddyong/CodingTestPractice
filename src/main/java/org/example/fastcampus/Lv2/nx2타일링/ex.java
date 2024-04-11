@@ -7,8 +7,17 @@ public class ex {
         int answer = 0;
 
         initTiles(n);
+        answer = getTotalCases(n);
 
         return answer;
+    }
+
+    private int getTotalCases(int n) {
+        for (int i = 2; i < n; i++) {
+            tiles[i] = tiles[i - 1] % DIVIDE_CASES + tiles[i - 2] % DIVIDE_CASES;
+        }
+
+        return tiles[n - 1] % DIVIDE_CASES;
     }
 
     private void initTiles(int n) {
