@@ -3,11 +3,37 @@ package org.example.fastcampus.Lv2.이진변환반복하기;
 import java.util.Arrays;
 
 public class ex {
+    int num = 0;
+    int zero = 0;
     public int[] solution(String s) {
         int[] answer = {};
 
+        answer = changingBinary(s);
 
         return answer;
+    }
+
+    private int[] changingBinary(String s) {
+        int[] ans = new int[2];
+        int len = s.length();
+        int temp = 0;
+
+        while (!s.equals("1")) {
+            s = s.replace("0", "");
+
+            temp = len - s.length();
+            zero += temp;
+
+            s = Integer.toBinaryString(s.length());
+            len = s.length();
+
+            num++;
+        }
+
+        ans[0] = num;
+        ans[1] = zero;
+
+        return ans;
     }
 
     public static void main(String[] args) {
