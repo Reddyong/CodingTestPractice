@@ -7,9 +7,27 @@ public class ex {
     public int solution(int[] people, int limit) {
         int answer = 0;
 
-
+        answer = getTotalBoat(people, limit);
 
         return answer;
+    }
+
+    private int getTotalBoat(int[] people, int limit) {
+        Arrays.sort(people);
+        int idx = 0;
+        int ans = 0;
+
+        for (int i = people.length - 1; i >= idx; i--) {
+            if (people[i] + people[idx] <= limit) {
+                ans++;
+                idx++;
+                continue;
+            }
+
+            ans++;
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
