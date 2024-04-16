@@ -7,9 +7,24 @@ public class ex {
         int answer = 0;
 
         sortData(data, col);
-
+        answer = getResult(data, row_begin, row_end);
 
         return answer;
+    }
+
+    private int getResult(int[][] data, int rowBegin, int rowEnd) {
+        int ans = 0;
+
+        for (int i = rowBegin - 1; i < rowEnd; i++) {
+            int mod = 0;
+            for (int j = 0; j < data[i].length; j++) {
+                mod += data[i][j] % (i + 1);
+            }
+
+            ans ^= mod;
+        }
+
+        return ans;
     }
 
     private void sortData(int[][] data, int col) {
