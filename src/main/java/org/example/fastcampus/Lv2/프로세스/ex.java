@@ -1,5 +1,6 @@
 package org.example.fastcampus.Lv2.프로세스;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class ex {
@@ -8,12 +9,38 @@ public class ex {
         int answer = 0;
 
         initQueue(priorities);
+        answer = getPriority(priorities, location);
 
         return answer;
     }
 
+    private int getPriority(int[] priorities, int location) {
+        int ans = 0;
+        int count = 0;
+
+        while (count < priorities.length) {
+            Integer peek = pq.peek();
+
+            if (peek == priorities[count]) {
+                ans++;
+                pq.poll();
+                if (count == location) {
+                    break;
+                }
+            }
+
+            count++;
+
+            if (count == priorities.length) {
+                count = 0;
+            }
+        }
+
+        return ans;
+    }
+
     private void initQueue(int[] priorities) {
-        pq = new PriorityQueue<>();
+        pq = new PriorityQueue<>(Comparator.reverseOrder());
 
         for (int priority : priorities) {
             pq.add(priority);
