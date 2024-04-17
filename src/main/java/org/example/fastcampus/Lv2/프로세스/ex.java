@@ -1,11 +1,23 @@
 package org.example.fastcampus.Lv2.프로세스;
 
+import java.util.PriorityQueue;
+
 public class ex {
+    PriorityQueue<Integer> pq;
     public int solution(int[] priorities, int location) {
         int answer = 0;
 
+        initQueue(priorities);
 
         return answer;
+    }
+
+    private void initQueue(int[] priorities) {
+        pq = new PriorityQueue<>();
+
+        for (int priority : priorities) {
+            pq.add(priority);
+        }
     }
 
     public static void main(String[] args) {
