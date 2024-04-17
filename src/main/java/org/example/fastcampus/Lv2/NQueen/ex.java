@@ -6,8 +6,38 @@ public class ex {
     public int solution(int n) {
 
         init(n);
+        getQueen(0);
 
         return answer;
+    }
+
+    private void getQueen(int depth) {
+        if (depth == queen.length) {
+            answer++;
+            return;
+        }
+
+        for (int i = 0; i < queen.length; i++) {
+            queen[depth] = i;
+
+            if (isCorrect(depth)) {
+                getQueen(depth + 1);
+            }
+        }
+    }
+
+    private boolean isCorrect(int depth) {
+        for (int i = 0; i < depth; i++) {
+            if (queen[depth] == queen[i]) {
+                return false;
+            }
+
+            if (Math.abs(depth - i) == Math.abs(queen[depth] - queen[i])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void init(int n) {
