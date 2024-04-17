@@ -5,8 +5,14 @@ public class ex {
     int answer;
     public int solution(int n) {
 
+        init(n);
 
         return answer;
+    }
+
+    private void init(int n) {
+        queen = new int[n];
+        answer = 0;
     }
 
     public static void main(String[] args) {
