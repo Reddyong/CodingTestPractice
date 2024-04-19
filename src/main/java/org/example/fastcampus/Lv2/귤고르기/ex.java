@@ -12,12 +12,13 @@ public class ex {
     }
 
     public static void main(String[] args) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 3);
-        map.put(2, 3);
+        ex sol = new ex();
+        int solution1 = sol.solution(6, new int[]{1, 3, 2, 5, 4, 5, 2, 3});
+        int solution2 = sol.solution(4, new int[]{1, 3, 2, 5, 4, 5, 2, 3});
+        int solution3 = sol.solution(2, new int[]{1, 1, 1, 1, 2, 2, 2, 3});
 
-        List<Integer> list = new ArrayList<>(map.values());
-        System.out.println("list = " + list);
-
+        System.out.println("solution1 = " + solution1);
+        System.out.println("solution2 = " + solution2);
+        System.out.println("solution3 = " + solution3);
     }
 }
