@@ -9,8 +9,24 @@ public class ex {
         int answer = 0;
 
         initTangerines(tangerine);
+        answer = getResult(k);
 
         return answer;
+    }
+
+    private int getResult(int k) {
+        int ans = 0;
+
+        for (Integer tangerine : tangerines) {
+            k -= tangerine;
+            ans++;
+
+            if (k <= 0) {
+                break;
+            }
+        }
+
+        return ans;
     }
 
     private void initTangerines(int[] tangerine) {
