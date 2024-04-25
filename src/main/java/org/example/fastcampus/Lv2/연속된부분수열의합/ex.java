@@ -6,8 +6,34 @@ public class ex {
     public int[] solution(int[] sequence, int k) {
         int[] answer = {};
 
+        answer = getSumIdx(sequence, k);
 
         return answer;
+    }
+
+    private int[] getSumIdx(int[] sequence, int k) {
+        int[] ans = new int[2];
+        int sum = 0;
+        int len = Integer.MAX_VALUE;
+
+        for (int i = 0, j = 0; i < sequence.length; i++) {
+            while (sum < k && j < sequence.length) {
+                sum += sequence[j++];
+            }
+
+            if (sum == k) {
+                int temp = j - 1 - i;
+                if (temp < len) {
+                    len = temp;
+                    ans[0] = i;
+                    ans[1] = j - 1;
+                }
+            }
+
+            sum -= sequence[i];
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
