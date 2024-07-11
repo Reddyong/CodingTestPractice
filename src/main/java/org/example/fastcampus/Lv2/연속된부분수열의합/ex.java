@@ -1,6 +1,10 @@
 package org.example.fastcampus.Lv2.연속된부분수열의합;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ex {
     public int[] solution(int[] sequence, int k) {
